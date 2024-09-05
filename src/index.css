@@ -87,3 +87,8 @@ body {
 .center {
   text-align: center;
 }
+
+.dataFlex {
+  display: flex;
+  justify-content: center;
+}
