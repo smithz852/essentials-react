@@ -1,10 +1,16 @@
 export default function DataColumn({ title }) {
   return (
-    <>
-    <div >
-      <thead>{title}</thead>
-      <tbody>65465</tbody>
-      </div>
-    </>
+   <table>
+    <thead>
+      <tr>
+        <th>{title}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>$45</td>
+      </tr>
+    </tbody>
+   </table>
   )
 }
