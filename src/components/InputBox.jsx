@@ -1,14 +1,16 @@
 import { useState } from "react"
+import { calculateInvestmentResults } from "../util/investment"
 
-export default function InputBox({ name, valId, onChangeValue }) {
+export default function InputBox({ name, valId, theValue }) {
 const [inputVal, setInputVal] = useState()
 
 
 function handleChange(event) {
  setInputVal(event.target.value)
  console.log(event.target.value)
- onChangeValue(valId, inputVal)
+ theValue(valId, inputVal)
 }
+
 
   return (
     <>
@@ -20,3 +22,4 @@ function handleChange(event) {
     </>
   )
 }
+
