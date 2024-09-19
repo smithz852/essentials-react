@@ -1,6 +1,7 @@
 import DataColumn from "./dataColumn";
 
-export default function DataContainer() {
+export default function DataContainer({ data }) {
+  console.log('data', data)
   return (
     <>
     <div id="result" className="dataFlex">

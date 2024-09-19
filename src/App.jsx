@@ -7,22 +7,26 @@ import { useState } from "react"
 
 
 function App() {
-  const [investValue, setInvestValue] = useState()
+  const [investValue, setInvestValue] = useState('0')
 
 function handleInputChange(valId, newNumber) {
+  console.log(valId, newNumber)
   setInvestValue(prevValue => {
     console.log(valId)
+    console.log("app", newNumber)
     return {
       ...prevValue,
-      [valId]: newNumber
+      [valId]: newNumber,
     }
   })
 }
+
+
   return (
     <>
       <Header />
-      <UserInput onChangeValue={handleInputChange} />
-      <DataContainer />
+      <UserInput  onChangeValue={handleInputChange} />
+      <DataContainer data={investValue} />
     </>
   )
 }
