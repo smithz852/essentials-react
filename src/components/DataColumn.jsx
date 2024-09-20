@@ -10,6 +10,9 @@ export default function DataColumn({ title }) {
       <tr>
         <td>$45</td>
       </tr>
+      <tr>
+        <td>$45</td>
+      </tr>
     </tbody>
    </table>
   )
