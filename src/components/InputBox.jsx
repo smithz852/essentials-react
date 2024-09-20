@@ -2,7 +2,7 @@ import { useState } from "react"
 import { calculateInvestmentResults } from "../util/investment"
 
 export default function InputBox({ name, valId, theValue }) {
-const [inputVal, setInputVal] = useState('0')
+const [inputVal, setInputVal] = useState()
 
 
 function handleChange(event) {
