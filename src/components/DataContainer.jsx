@@ -1,6 +1,16 @@
+import { useState } from 'react'
 import { calculateInvestmentResults } from '../util/investment.js'
 
 export default function DataContainer({ data }) {
+  const [dataTable, setDataTable] = useState(
+    <tr>
+        <td>1</td>
+        <td>2</td>
+        <td>3</td>
+        <td>4</td>
+        <td>5</td>
+      </tr>
+    )
 
   console.log('data', data)
 
@@ -41,6 +51,21 @@ export default function DataContainer({ data }) {
   const dataResults = calculateInvestmentResults(collectiveData)
   console.log('results', dataResults)
 
+  const setData = dataResults.forEach((el) => {
+    console.log(el.year)
+    return (
+    `<tr>
+        <td>${el.year}</td>
+        <td>${el.valueEndOfYear}</td>
+        <td>${el.interest}</td>
+        <td>${el.annualInvestment}</td>
+        <td>IC</td>
+      </tr>
+      `
+    )
+  })
+  console.log(setData)
+
   return (
     <>
       <table id="result" >
@@ -54,20 +79,7 @@ export default function DataContainer({ data }) {
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>YC</td>
-        <td>V</td>
-        <td>IY</td>
-        <td>TI</td>
-        <td>IC</td>
-      </tr>
-      <tr>
-        <td>YC</td>
-        <td>V</td>
-        <td>IY</td>
-        <td>TI</td>
-        <td>IC</td>
-      </tr>
+      {dataTable}
     </tbody>
    </table>
     </>
