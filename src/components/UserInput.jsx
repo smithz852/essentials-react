@@ -12,10 +12,10 @@ export default function({ onChangeValue }) {
     <>
       <div id="user-input"  >
         
-          <InputBox name="Initial Investment" valId="1" theValue={secondChange}/>
-          <InputBox name="Annual Investment" valId="2" theValue={secondChange}/>
-          <InputBox name="Expected Return" valId="3" theValue={secondChange}/>
-          <InputBox name="Duration" valId="4" theValue={secondChange}/>
+          <InputBox name="Initial Investment" valId="initialInvestment" theValue={secondChange}/>
+          <InputBox name="Annual Investment" valId="annualInvestment" theValue={secondChange}/>
+          <InputBox name="Expected Return" valId="expectedReturn" theValue={secondChange}/>
+          <InputBox name="Duration" valId="duration" theValue={secondChange}/>
         
       </div>
     </>

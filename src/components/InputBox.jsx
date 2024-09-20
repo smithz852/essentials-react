@@ -16,7 +16,7 @@ function handleChange(event) {
     <>
     <div>
     <label htmlFor="amount">{name}</label>
-    <input type="text" id="amount" value={!inputVal ? "0" : inputVal} onChange={handleChange}/>
+    <input type="text" id="amount" value={!inputVal ? "" : inputVal} onChange={handleChange}/>
     </div>
        
     </>
