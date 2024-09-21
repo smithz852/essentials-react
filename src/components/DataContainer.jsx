@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { calculateInvestmentResults } from '../util/investment.js'
+import { calculateInvestmentResults, formatter } from '../util/investment.js'
 
 export default function DataContainer({ data }) {
   const [dataTable, setDataTable] = useState(
@@ -20,19 +20,19 @@ export default function DataContainer({ data }) {
   let duration = parseInt(data.duration)
 
   if (!initialInvestment) {
-    initialInvestment = 0
+    initialInvestment = 1500
   }
 
   if (!annualInvestment) {
-    annualInvestment = 0
+    annualInvestment = 500
   }
 
   if (!expectedReturn) {
-    expectedReturn = 0
+    expectedReturn = 5
   }
 
   if (!duration) {
-    duration = 0
+    duration = 3
   }
 
   const collectiveData = {
@@ -49,22 +49,12 @@ export default function DataContainer({ data }) {
 
 
   const dataResults = calculateInvestmentResults(collectiveData)
+  const firstInvestment = dataResults[0].valueEndOfYear - dataResults[0].interest - dataResults[0].annualInvestment
+
+
   console.log('results', dataResults)
 
-  const setData = dataResults.forEach((el) => {
-    console.log(el.year)
-    return (
-    `<tr>
-        <td>${el.year}</td>
-        <td>${el.valueEndOfYear}</td>
-        <td>${el.interest}</td>
-        <td>${el.annualInvestment}</td>
-        <td>IC</td>
-      </tr>
-      `
-    )
-  })
-  console.log(setData)
+
 
   return (
     <>
@@ -79,7 +69,17 @@ export default function DataContainer({ data }) {
       </tr>
     </thead>
     <tbody>
-      {dataTable}
+      {dataResults.map(el => {
+        const totalInterest = el.valueEndOfYear - el.annualInvestment * el.year - firstInvestment
+        const totalAmountInvested = el.valueEndOfYear - totalInterest
+        return <tr key={el.year}>
+          <td>{el.year}</td>
+          <td>{formatter.format(el.valueEndOfYear)}</td>
+          <td>{formatter.format(el.interest)}</td>
+          <td>{formatter.format(totalInterest)}</td>
+          <td>{formatter.format(totalAmountInvested)}</td>
+        </tr>
+      })}
     </tbody>
    </table>
     </>
