@@ -20,8 +20,6 @@ NA
 
 ## Usage
 
-https://smithz852.github.io/essentials-react/
-
 Usable upon launching the app and inputing data into the displayed input fields.
  
 ## Contributions
